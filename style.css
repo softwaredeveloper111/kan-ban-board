@@ -1,0 +1,263 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "gilroy";
+}
+html , body{
+    height: 100%;
+    width: 100%;
+}
+
+
+
+:root{
+  /* ----------COLORS -------------*/
+ 
+  --color-primary-bg:black;
+  --color-secondary-bg:rgb(36, 33, 33);
+  --color-primary:#fff;
+  --color-popup-bg:rgba(255, 255, 255, 0.164);
+
+
+  /*---------SPACING-------------*/
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+  --space-xxxl: 64px;
+
+
+  /* -----------FONT SIZE---------*/
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --text-4xl: 36px;
+  --text-5xl: 48px;
+
+
+
+  /* --------FONT WEIGHT--------*/
+
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+
+
+  /*-----------BORDER RADIUS----------------*/
+   --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-round: 50%;
+
+}
+
+
+
+
+
+main{
+  height: 100vh;
+  width: 100vw;
+  background:var(--color-primary-bg);
+  color: var(--color-primary);
+  position: relative;
+}
+
+
+
+/*------------------- navigation bar styling-------------------------  */
+
+
+main>nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xl) var(--space-xxl);
+}
+
+nav>h3{
+  font-size: var(--text-2xl);
+  font-weight:var(--font-medium);
+}
+
+
+
+nav>button{
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-weight: var(--font-regular);
+}
+nav>button:active{
+  scale: 0.9;
+}
+
+
+
+/*-----------------------pop up div styling--------------------------- */
+
+.popup{
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-popup-bg);
+  backdrop-filter: blur(3px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.popup-dialog{
+   width: 300px;
+   height: 230px;
+   background-color: var(--color-secondary-bg);
+   border-radius: var(--radius-lg);
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+}
+
+.close-icon{
+  position: absolute;
+  right:5px;
+  top: 5px;
+  font-size:var(--text-2xl) ;
+  color: red;
+  cursor: pointer;
+}
+
+.popup-dialog>form{
+  margin-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  
+}
+
+.popup-dialog>form>input,.popup-dialog>form>textarea{
+  padding: var(--space-sm);
+  color: var(--color-primary);
+  border: none;
+  outline: none;
+  border-radius: var(--radius-sm);
+  background-color: rgb(65, 60, 60);
+  width: 250px;
+}
+
+.popup-dialog>form>textarea{
+  resize: none;
+}
+
+.popup-dialog>form>button{
+  width: fit-content;
+  margin: auto;
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(224, 220, 220);
+}
+
+
+.popup-dialog>form>button:active{
+  scale: 0.9;
+}
+
+
+
+/* -------------------main container css styling-----------------  */
+
+.main-container{
+  width: 100%;
+  height: calc(100% - (64px + 68px));
+  display: flex;
+  padding: 0 var(--space-xxl);
+  gap: 25px;
+}
+
+.section{
+  width: 33%;
+  height: 100%;
+  background-color: var(--color-secondary-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.section::-webkit-scrollbar{
+  display: none;
+}
+
+.section>nav{
+    display: flex;
+    align-items: center;
+  justify-content: space-between; 
+  margin-bottom: var(--space-lg);
+
+}
+
+.section>nav>span{
+font-size: var(--text-lg);
+  
+}
+
+
+.data{
+  width: 100%;
+  background-color: rgb(22, 21, 21);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  cursor: grab;
+}
+
+.data.dragging {
+  opacity: 0.3;
+}
+
+
+.data>h3{
+ font-weight: var(--font-bold);
+ margin-bottom: var(--space-sm);
+ font-size: var(--text-xl);
+
+}
+
+.data>p{
+  font-size: var(--text-sm);
+}
+
+.data-btn-section{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-lg);
+}
+.data-btn-section>button{
+  padding: var(--space-xs);
+ border-radius: var(--radius-sm);
+ background-color: brown;
+ cursor: pointer;
+ color: var(--color-primary);
+ border: none;
+ outline: none;
+
+}
